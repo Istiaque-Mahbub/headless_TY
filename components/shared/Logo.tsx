@@ -1,4 +1,4 @@
-import logo from "@/public/Logo.png"
+import logo from "@/public/TY logo.png"
 import Image from "next/image"
 
 export default function Logo() {
@@ -7,8 +7,8 @@ export default function Logo() {
         <Image
         src={logo}
         alt="TY Law International Logo"
-        width={40}
-        height={40}
+        width={120}
+        height={120}
         ></Image>
     </div>
   )
