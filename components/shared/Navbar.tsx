@@ -14,7 +14,7 @@ import {
 import contactUsIcon from "@/public/up right.svg"
 
 const navItems = [
-  { label: "About Us", href: "#" },
+  { label: "About Us", href: "about-us" },
   { label: "Products & Services", href: "#" },
   { label: "Markets", href: "#" },
   { label: "News", href: "#" },

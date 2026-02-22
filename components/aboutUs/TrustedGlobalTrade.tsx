@@ -1,5 +1,3 @@
-"use client"
-
 import { extractTrustedPartner } from "@/lib/fetchData/aboutUs/extractTrustedPartnerData"
 import { fetchAboutUsData } from "@/lib/fetchData/aboutUs/fetchAboutUsData"
 import Image from "next/image"

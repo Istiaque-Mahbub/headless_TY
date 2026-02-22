@@ -20,7 +20,7 @@ export default async function Hero({ highlightText }: HeroProps) {
   const titleParts = banner.title.split(highlightText);
 
   return (
-    <section className="relative z-10 w-full bg-gradient-to-r from-[#32C7AF] via-[#37C1A4] to-[#2E9E8E] text-white">
+    <section className="relative z-10 w-full bg-gradient-to-r from-[#32C7AF] via-[#37C1A4] to-[#2E9E8E] text-white overflow-hidden">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-10 px-4 pt-12 pb-40 sm:px-6 sm:pt-16 sm:pb-56 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:pt-20 lg:pb-88">
         <div className="max-w-xl space-y-6">
           <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
