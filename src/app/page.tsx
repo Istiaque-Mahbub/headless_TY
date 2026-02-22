@@ -7,11 +7,11 @@ import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 
 export default function HomePage() {
     return (
-        <>
+        <div className="relative">
             <Hero highlightText="Asia and Europe" />
             <OverlapSection />
             <WhatWeDoSection />
             <OurAddress/>
-        </>
+        </div>
     )
 }
