@@ -2,8 +2,8 @@
 import Image from "next/image";
 import contactUsIcon from "@/public/up right.svg";
 import { Button } from "@/components/ui/button";
-import { Banner, extractBanner } from "@/lib/fetchData/GetBanner";
-import { fetchHomeData } from "@/lib/fetchData/fetchLandingPage";
+import { Banner, extractBanner } from "@/lib/fetchData/Home/GetBanner";
+import { fetchHomeData } from "@/lib/fetchData/Home/fetchLandingPage";
 
 
 interface HeroProps {

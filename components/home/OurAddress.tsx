@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MapPinIcon } from "@heroicons/react/24/solid";
-import { fetchHomeData } from "@/lib/fetchData/fetchLandingPage";
-import { extractOurAddressSection } from "@/lib/fetchData/ourAddress";
+import { fetchHomeData } from "@/lib/fetchData/Home/fetchLandingPage";
+import { extractOurAddressSection } from "@/lib/fetchData/Home/ourAddress";
 
 // TypeScript interface
 export interface OurAddressData {

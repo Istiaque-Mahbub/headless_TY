@@ -1,5 +1,5 @@
-import { GraphQLClient, gql } from "graphql-request";
-import { Banner, extractBanner, GET_HOMEPAGE } from "./GetBanner";
+import { GraphQLClient } from "graphql-request";
+import { GET_HOMEPAGE } from "./GetBanner";
 
 export async function fetchHomeData<T>(
   extractor: (html: string) => T | null

@@ -1,8 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { fetchHomeData } from "@/lib/fetchData/fetchLandingPage"
-import { extractOverlaySection } from "@/lib/fetchData/GetTheOverLay"
+import { fetchHomeData } from "@/lib/fetchData/Home/fetchLandingPage"
+import { extractOverlaySection } from "@/lib/fetchData/Home/GetTheOverLay"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import contactUsIcon from "@/public/up right.svg"

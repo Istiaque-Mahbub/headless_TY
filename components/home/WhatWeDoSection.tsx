@@ -3,8 +3,8 @@
 import Image from "next/image"
 import contactUsIcon from "@/public/up right.svg"
 import { useEffect, useState } from "react"
-import { fetchHomeData } from "@/lib/fetchData/fetchLandingPage"
-import { extractWhatWeDoSection } from "@/lib/fetchData/WhatWeDoData"
+import { fetchHomeData } from "@/lib/fetchData/Home/fetchLandingPage"
+import { extractWhatWeDoSection } from "@/lib/fetchData/Home/WhatWeDoData"
 
 export interface WhatWeDoCard {
   number: string
