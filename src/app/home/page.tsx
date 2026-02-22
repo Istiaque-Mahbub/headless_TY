@@ -4,6 +4,7 @@ import OverlapSection from "./OverlapSection"
 import WhatWeDoSection from "./WhatWeDoSection"
 import GlobeSection from "./GlobeSection"
 import RequestQuoteSection from "./RequestQuoteSection"
+import Footer from "./Footer"
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <WhatWeDoSection />
       <GlobeSection />
       <RequestQuoteSection />
+      <Footer />
     </>
   )
 }
