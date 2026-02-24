@@ -3,11 +3,13 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import arrowIcon from "@/public/up right.svg"
+import Link from "next/link"
 
 interface WPPost {
   id: number
   date: string
   link: string
+  slug: string
   title: { rendered: string }
   excerpt: { rendered: string }
   _embedded?: {
@@ -36,6 +38,7 @@ export default function ArticleOverview() {
     }
     fetchPost()
   }, [])
+
 
   if (!post) return null
 
@@ -92,14 +95,14 @@ export default function ArticleOverview() {
               dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
             />
 
-            <a
-              href={post.link}
+            <Link
+              href={`http://localhost:3000/news-and-insights/${post.slug}`}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#1F3A93] px-6 py-3 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#1F3A93]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-[#1F3A93]"
               aria-label="Read full article"
             >
               <span>Read Full Article</span>
               <Image src={arrowIcon} alt="" width={16} height={16} className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

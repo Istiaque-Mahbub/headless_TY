@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import contactUsIcon from "@/public/up right.svg";
 import { fetchAboutUsData } from "@/lib/fetchData/aboutUs/fetchAboutUsData"
 import { extractReadyToPartner } from "@/lib/fetchData/aboutUs/extractReadyToPartner"
+import Link from "next/link";
 
 export async function ReadyToPartnerSection() {
   // Fetch data dynamically
@@ -48,7 +49,8 @@ export async function ReadyToPartnerSection() {
                 <p className="mt-4 text-white/80 text-lg max-w-xl">{subtext}</p>
 
                 {buttonText && (
-                  <Button className="mt inline-flex items-center gap-2 rounded-full bg-[#1F3A93] z-99 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#1F3A93]/90">
+                <Link href="/contact-us">
+                <Button className="mt inline-flex items-center gap-2 rounded-full bg-[#1F3A93] z-99 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#1F3A93]/90">
             <span>{buttonText || "Contact Us"}</span>
             <Image
               src={contactUsIcon}
@@ -58,6 +60,7 @@ export async function ReadyToPartnerSection() {
               className="h-4 w-4 z-99"
             />
           </Button>
+                </Link>
                 )}
               </div>
             </div>
