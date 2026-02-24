@@ -9,13 +9,13 @@ import globeImage from "@/public/globe.svg"
 import upRightIcon from "@/public/up right.svg"
 
 const mainNavItemClass =
-  "font-[Montserrat] text-[16px] font-semibold leading-[150%] text-[var(--Color-White,#FFF)]"
+  "font-[Montserrat] text-[16px] font-semibold leading-[150%] text-white"
 
 const serviceChildClass =
-  "text-justify text-[14px] font-['Open Sans'] font-normal leading-[140%] text-[rgba(255,255,255,0.60)]"
+  "text-justify text-[14px] font-['Open Sans'] font-normal leading-[140%] text-white/60"
 
 const bodyTextClass =
-  "font-['Open Sans'] text-[16px] font-normal leading-[150%] text-[var(--Color-White,#FFF)]"
+  "font-['Open Sans'] text-[16px] font-normal leading-[150%] text-white"
 
 export default function Footer() {
   function handleSubscribe(e: FormEvent<HTMLFormElement>) {
@@ -23,9 +23,11 @@ export default function Footer() {
   }
 
   return (
-    <footer className="flex w-full justify-center bg-[#1F3A93] text-white">
-      <div className="flex w-full max-w-[1440px] flex-col gap-10 px-4 pb-6 pt-16 sm:px-8 lg:px-[135px]">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.1fr)]">
+    <footer className="w-full bg-[#1F3A93] text-white">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 py-10 sm:px-8 lg:px-[135px]">
+        {/* Main Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
+          {/* Logo & About */}
           <div className="flex flex-col gap-5">
             <Image
               src={tyLogo}
@@ -41,62 +43,71 @@ export default function Footer() {
             <div className="h-14 w-14 rounded-full bg-white/8" />
           </div>
 
+          {/* Navigation Links */}
           <nav aria-label="Footer navigation" className="flex flex-col gap-6">
             <ul className="space-y-2">
-              <li>
-                <Link href="#" className={mainNavItemClass}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className={mainNavItemClass}>
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className={mainNavItemClass}>
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className={mainNavItemClass}>
-                  Markets
-                </Link>
-              </li>
+              {["Home", "About Us", "News", "Markets"].map((item) => (
+                <li key={item}>
+                  <Link href="#" className={mainNavItemClass}>
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
+
             <div className="space-y-2 pt-2">
               <p className={mainNavItemClass}>Services &amp; Products</p>
               <ul className="space-y-1">
-                <li className={serviceChildClass}>Electronics Products</li>
-                <li className={serviceChildClass}>Healthcare Products</li>
-                <li className={serviceChildClass}>Logistics Support</li>
+                {[
+                  "Electronics Products",
+                  "Healthcare Products",
+                  "Logistics Support",
+                ].map((item) => (
+                  <li key={item} className={serviceChildClass}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </nav>
 
+          {/* Markets & Contact */}
           <div className="flex flex-col gap-6">
             <nav aria-label="Markets we serve" className="space-y-2">
               <p className={mainNavItemClass}>Markets We Serve</p>
               <ul className="space-y-1">
-                <li className={serviceChildClass}>Bangladesh</li>
-                <li className={serviceChildClass}>Germany</li>
-                <li className={serviceChildClass}>China</li>
-                <li className={serviceChildClass}>Other Asian Markets</li>
-                <li className={serviceChildClass}>European Markets</li>
+                {[
+                  "Bangladesh",
+                  "Germany",
+                  "China",
+                  "Other Asian Markets",
+                  "European Markets",
+                ].map((item) => (
+                  <li key={item} className={serviceChildClass}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </nav>
 
             <nav aria-label="Contact info" className="space-y-2">
               <p className={mainNavItemClass}>Contact Info</p>
               <ul className="space-y-1">
-                <li className={serviceChildClass}>Hongkong Office</li>
-                <li className={serviceChildClass}>Address</li>
-                <li className={serviceChildClass}>+86 0000000000</li>
-                <li className={serviceChildClass}>contact@abc.com</li>
+                {[
+                  "Hongkong Office",
+                  "Address",
+                  "+86 0000000000",
+                  "contact@abc.com",
+                ].map((item) => (
+                  <li key={item} className={serviceChildClass}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
 
+          {/* Newsletter & Social */}
           <div className="flex flex-col justify-between gap-8">
             <form
               onSubmit={handleSubscribe}
@@ -112,7 +123,7 @@ export default function Footer() {
                   id="footer-email"
                   type="email"
                   placeholder="Enter Email"
-                  className="flex-1 bg-transparent text-[14px] font-['Open Sans'] leading-[150%] text-[var(--Color-White,#FFF)] placeholder:text-white/60 outline-none"
+                  className="flex-1 bg-transparent text-[14px] font-['Open Sans'] leading-[150%] text-white placeholder:text-white/60 outline-none"
                 />
                 <button
                   type="submit"
@@ -131,41 +142,31 @@ export default function Footer() {
             </form>
 
             <div className="space-y-3">
-              <p className="font-[Montserrat] text-[22px] font-semibold text-[var(--Color-White,#FFF)]">
+              <p className="font-[Montserrat] text-[22px] font-semibold text-white">
                 Follow Us
               </p>
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  aria-label="Visit Facebook"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-                >
-                  F
-                </button>
-                <button
-                  type="button"
-                  aria-label="Visit LinkedIn"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-                >
-                  in
-                </button>
-                <button
-                  type="button"
-                  aria-label="Visit X"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-                >
-                  X
-                </button>
+              <div className="flex gap-3 flex-wrap">
+                {["F", "in", "X"].map((icon) => (
+                  <button
+                    key={icon}
+                    type="button"
+                    aria-label={`Visit ${icon}`}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+                  >
+                    {icon}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-2 flex items-center justify-between gap-4">
-          <p className="flex-1 text-center font-[Montserrat] text-[12px] font-normal leading-[150%] text-[rgba(255,255,255,0.60)]">
+        {/* Footer Bottom */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-center text-[12px] font-[Montserrat] font-normal leading-[150%] text-white/60">
             © 2026 TY LAW International. All rights reserved
           </p>
-          <div className="relative hidden h-24 w-24 overflow-hidden rounded-full bg-white/5 sm:block">
+          <div className="relative h-24 w-24 overflow-hidden rounded-full bg-white/5">
             <Image
               src={globeImage}
               alt=""
