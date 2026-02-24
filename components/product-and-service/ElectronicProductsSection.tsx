@@ -7,7 +7,7 @@ export default function ElectronicProductsSection() {
     return (
         <section className="w-full bg-white px-4 py-12 sm:px-6 lg:px-8">
             <div className="mx-auto flex w-full max-w-[1170px] flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-12">
-                <div className="order-1 flex-1 lg:order-2">
+                <div className="order-2 flex-1 lg:order-2">
                     <div className="mb-4 flex flex-wrap items-baseline gap-2">
                         <h2
                             className="text-[32px] font-semibold leading-none tracking-[-0.96px] text-black sm:text-[40px] lg:text-[48px]"
@@ -98,7 +98,7 @@ export default function ElectronicProductsSection() {
                     </div>
                 </div>
 
-                <div className="order-2 flex-1 lg:order-1 lg:flex lg:justify-start">
+                <div className="order-1 flex-1 lg:order-1 lg:flex lg:justify-start">
                     <div className="overflow-hidden rounded-3xl border border-[#1F3A93]/20 w-full aspect-[57/59] flex-shrink-0 lg:w-[570px] lg:h-[590px]">
                         <Image
                             src={electronicProductsImage}
