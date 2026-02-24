@@ -1,6 +1,8 @@
-import { GraphQLClient,gql } from "graphql-request"
+import { GraphQLClient, gql } from "graphql-request"
 
-const endpoint = "http://try-headless.local/graphql"
+const endpoint =
+  process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_ENDPOINT ??
+  "http://try-headless.local/graphql"
 
 const GET_ABOUT_PAGE = gql`
   query GetAboutPage {
@@ -15,11 +17,16 @@ const GET_ABOUT_PAGE = gql`
 export async function fetchAboutUsData<T>(
   extractor: (html: string) => T | null
 ): Promise<T | null> {
-  const client = new GraphQLClient(endpoint)
+  try {
+    const client = new GraphQLClient(endpoint)
 
-  const data = await client.request<{
-    page: { content: string }
-  }>(GET_ABOUT_PAGE)
+    const data = await client.request<{
+      page: { content: string }
+    }>(GET_ABOUT_PAGE)
 
-  return extractor(data.page.content)
+    return extractor(data.page.content)
+  } catch (error) {
+    console.error("Failed to fetch About Us data from GraphQL endpoint", error)
+    return null
+  }
 }

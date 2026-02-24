@@ -14,10 +14,10 @@ import {
 import contactUsIcon from "@/public/up right.svg"
 
 const navItems = [
-  { label: "About Us", href: "about-us" },
-  { label: "Products & Services", href: "#" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Products & Services", href: "/product-and-service" },
   { label: "Markets", href: "#" },
-  { label: "News", href: "#" },
+  { label: "News & Insights", href: "/news-and-insights" },
   { label: "FAQ", href: "#" },
   { label: "Careers", href: "#" },
   { label: "Account", href: "#" },
