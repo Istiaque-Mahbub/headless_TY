@@ -14,7 +14,7 @@ import {
 import contactUsIcon from "@/public/up right.svg"
 
 const navItems = [
-  { label: "About Us", href: "about-us" },
+  { label: "About Us", href: "/about-us" },
   { label: "Products & Services", href: "#" },
   { label: "Markets", href: "#" },
   { label: "News", href: "#" },
@@ -25,20 +25,23 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <header className="w-full bg-gradient-to-r from-[#32C7AF] via-[#37C1A4] to-[#2E9E8E] text-white">
-      <div className="mx-auto flex h-16 w-full max-w-[1170px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+    <header className="w-full bg-gradient-to-r from-[#32C7AF] via-[#37C1A4] to-[#2E9E8E] text-white shadow-sm">
+      <div className="mx-auto flex h-16 w-full Lg:max-w-[1170px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0">
           <Logo />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm font-medium flex-wrap">
+        {/* Desktop Navigation - show only lg and up */}
+        <nav
+          className="hidden lg:flex flex-wrap items-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm font-medium"
+          aria-label="Primary navigation"
+        >
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="relative transition hover:opacity-80 whitespace-nowrap"
+              className="relative whitespace-nowrap transition hover:opacity-80"
             >
               {item.label}
             </Link>
@@ -56,32 +59,38 @@ export default function Navbar() {
           </Button>
         </nav>
 
-        {/* Mobile Menu */}
-        <div className="flex items-center md:hidden">
+        {/* Mobile & Tablet Menu - show below lg */}
+        <div className="flex items-center lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="Open menu"
                 className="text-white hover:bg-white/10"
               >
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
+
             <SheetContent
               side="right"
               className="w-64 max-w-[80vw] border-l border-white/10 bg-gradient-to-b from-[#32C7AF] via-[#37C1A4] to-[#2E9E8E] text-white"
             >
-              <div className="mt-10 flex flex-col gap-4 sm:gap-6">
+              <nav
+                className="mt-10 flex flex-col gap-4 sm:gap-6"
+                aria-label="Mobile navigation"
+              >
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-base font-medium"
+                    className="text-base font-medium hover:underline"
                   >
                     {item.label}
                   </Link>
                 ))}
+
                 <Button className="mt-4 flex items-center gap-2 rounded-full bg-[#1F3A93] px-5 py-2 text-sm font-semibold text-white hover:bg-[#1F3A93]/90">
                   <span>Contact Us</span>
                   <Image
@@ -92,7 +101,7 @@ export default function Navbar() {
                     className="h-4 w-4"
                   />
                 </Button>
-              </div>
+              </nav>
             </SheetContent>
           </Sheet>
         </div>
